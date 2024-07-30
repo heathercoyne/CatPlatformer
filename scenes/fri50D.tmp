@@ -1,0 +1,179 @@
+[gd_scene load_steps=19 format=3 uid="uid://hq226gmfuvym"]
+
+[ext_resource type="Script" path="res://scripts/friend.gd" id="1_3t3rc"]
+[ext_resource type="Texture2D" uid="uid://bytdl1lxbtfyy" path="res://assets/textures/npcs/friend.png" id="2_ici6a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pikuf"]
+atlas = ExtResource("2_ici6a")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_shc2m"]
+atlas = ExtResource("2_ici6a")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3p25c"]
+atlas = ExtResource("2_ici6a")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_57ggh"]
+atlas = ExtResource("2_ici6a")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wyisb"]
+atlas = ExtResource("2_ici6a")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kono3"]
+atlas = ExtResource("2_ici6a")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4do8h"]
+atlas = ExtResource("2_ici6a")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5bbp3"]
+atlas = ExtResource("2_ici6a")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7dqmx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pikuf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_shc2m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3p25c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_57ggh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wyisb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kono3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4do8h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5bbp3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cxgi2"]
+size = Vector2(46, 59)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g1d68"]
+size = Vector2(226, 60.5)
+
+[sub_resource type="LabelSettings" id="LabelSettings_c4wp3"]
+font_color = Color(1, 0, 0, 1)
+outline_size = 5
+outline_color = Color(0.0846899, 0.0846899, 0.0846899, 1)
+
+[sub_resource type="Animation" id="Animation_bvm8r"]
+resource_name = "speech"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Roomate:
+Today is your mothers Birthday,
+shouldn't you be heading home 
+now?"]
+}
+
+[sub_resource type="Animation" id="Animation_u3owb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Roomate:
+Today is your mothers Birthday,
+shouldn't you be heading home 
+now?"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cs6j5"]
+_data = {
+"RESET": SubResource("Animation_u3owb"),
+"speech": SubResource("Animation_bvm8r")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_27ktp"]
+
+[node name="Friend" type="Node2D"]
+script = ExtResource("1_3t3rc")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_7dqmx")
+autoplay = "default"
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_cxgi2")
+
+[node name="Outside" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Outside"]
+position = Vector2(0, 1.25)
+shape = SubResource("RectangleShape2D_g1d68")
+
+[node name="Exclaim" type="Label" parent="."]
+offset_left = 27.0
+offset_top = -48.0
+offset_right = 32.0
+offset_bottom = -25.0
+text = "!"
+label_settings = SubResource("LabelSettings_c4wp3")
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("")
+libraries = {
+"": SubResource("AnimationLibrary_cs6j5")
+}
+
+[node name="Text" type="Container" parent="."]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="Text"]
+layout_mode = 2
+color = Color(0.101961, 0.101961, 0.101961, 0.596078)
+
+[node name="Label" type="Label" parent="Text"]
+layout_mode = 2
+text = "Roomate:
+Today is your mothers Birthday,
+shouldn't you be heading home now?"
+label_settings = SubResource("LabelSettings_27ktp")
+
+[connection signal="body_entered" from="Outside" to="." method="_on_outside_body_entered"]
+[connection signal="body_exited" from="Outside" to="." method="_on_outside_body_exited"]

@@ -1,0 +1,118 @@
+[gd_scene load_steps=13 format=3 uid="uid://c214vdv6fsr1b"]
+
+[ext_resource type="Script" path="res://scripts/start_menu.gd" id="1_3qyp7"]
+[ext_resource type="PackedScene" uid="uid://xh07ynfmg1nc" path="res://scenes/background.tscn" id="1_4dnme"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3r7u2"]
+font_size = 80
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jb6vu"]
+bg_color = Color(0.512142, 0.544111, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_am1j3"]
+bg_color = Color(0.561043, 0.598082, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_opsw0"]
+bg_color = Color(0.74214, 0.775329, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gg0ig"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ff4cs"]
+bg_color = Color(0.701961, 0.701961, 0.701961, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wvekv"]
+bg_color = Color(0.817521, 0.817521, 0.817521, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_31s3d"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a65xa"]
+bg_color = Color(0.703808, 0.703808, 0.703808, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7guby"]
+bg_color = Color(0.815686, 0.815686, 0.815686, 1)
+
+[node name="StartMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3qyp7")
+
+[node name="Background" parent="." instance=ExtResource("1_4dnme")]
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -129.0
+offset_top = -145.0
+offset_right = 129.0
+offset_bottom = -35.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "MEOW"
+label_settings = SubResource("LabelSettings_3r7u2")
+
+[node name="StartButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = 10.0
+offset_right = 75.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_jb6vu")
+theme_override_styles/hover = SubResource("StyleBoxFlat_am1j3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_opsw0")
+text = "START"
+
+[node name="LoadButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -75.0
+offset_top = -190.0
+offset_right = 75.0
+offset_bottom = -159.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_gg0ig")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ff4cs")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wvekv")
+text = "Load"
+
+[node name="QuitButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -75.0
+offset_top = -150.0
+offset_right = 75.0
+offset_bottom = -119.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_31s3d")
+theme_override_styles/hover = SubResource("StyleBoxFlat_a65xa")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7guby")
+text = "Quit"
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]

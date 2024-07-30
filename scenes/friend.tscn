@@ -1,0 +1,375 @@
+[gd_scene load_steps=31 format=3 uid="uid://hq226gmfuvym"]
+
+[ext_resource type="Script" path="res://scripts/friend.gd" id="1_3t3rc"]
+[ext_resource type="Texture2D" uid="uid://bytdl1lxbtfyy" path="res://assets/textures/npcs/friend.png" id="2_ici6a"]
+[ext_resource type="Texture2D" uid="uid://dgsp4l7ey3j1b" path="res://assets/textures/npcs/friend_talking.png" id="3_guiqf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pikuf"]
+atlas = ExtResource("2_ici6a")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_shc2m"]
+atlas = ExtResource("2_ici6a")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3p25c"]
+atlas = ExtResource("2_ici6a")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_57ggh"]
+atlas = ExtResource("2_ici6a")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wyisb"]
+atlas = ExtResource("2_ici6a")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kono3"]
+atlas = ExtResource("2_ici6a")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4do8h"]
+atlas = ExtResource("2_ici6a")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5bbp3"]
+atlas = ExtResource("2_ici6a")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2d3uq"]
+atlas = ExtResource("3_guiqf")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wxd2n"]
+atlas = ExtResource("3_guiqf")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gctj2"]
+atlas = ExtResource("3_guiqf")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m2npm"]
+atlas = ExtResource("3_guiqf")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6wqbd"]
+atlas = ExtResource("3_guiqf")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ykxuv"]
+atlas = ExtResource("3_guiqf")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b2x75"]
+atlas = ExtResource("3_guiqf")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4yelx"]
+atlas = ExtResource("3_guiqf")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7dqmx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pikuf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_shc2m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3p25c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_57ggh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wyisb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kono3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4do8h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5bbp3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2d3uq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wxd2n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gctj2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m2npm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6wqbd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ykxuv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b2x75")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4yelx")
+}],
+"loop": true,
+"name": &"talking",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cxgi2"]
+size = Vector2(46, 59)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g1d68"]
+size = Vector2(238, 60.5)
+
+[sub_resource type="LabelSettings" id="LabelSettings_c4wp3"]
+font_color = Color(1, 0, 0, 1)
+outline_size = 5
+outline_color = Color(0.0846899, 0.0846899, 0.0846899, 1)
+
+[sub_resource type="Animation" id="Animation_gdhw7"]
+resource_name = "speech"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 1.5, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.145, 0.543, 0.543, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["Meowington:
+Today is your mothers Birthday,
+shouldn't you be heading home now?", "Meowington:
+Today is your mothers Birthday,
+shouldn't you be heading home now?"]
+}
+
+[sub_resource type="Animation" id="Animation_3atb8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.145]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Meowington:
+Today is your mothers Birthday,
+shouldn't you be heading home now?"]
+}
+
+[sub_resource type="Animation" id="Animation_l82fs"]
+resource_name = "end"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["Meowington:
+Today is your mothers Birthday,
+shouldn't you be heading home now?", "Meowington:
+Today is your mothers Birthday,
+shouldn't you be heading home now?"]
+}
+
+[sub_resource type="Animation" id="Animation_hsjld"]
+resource_name = "speech2"
+length = 7.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4.5, 4.6, 7.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": ["Meowington:
+MEOW! What took you so long? 
+And why dont you have a gift?", "Meowington:
+MEOW! What took you so long? 
+And why dont you have a gift?", "Meowington:
+Go to the Clouds Shopping Center
+ and buy a gift. Here use this", "Meowington:
+Go to the Clouds Shopping Center
+ and buy a gift. Here use this"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 2, 3, 4.5, 4.6, 6, 6.5, 7.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.169, 0.253, 0.253, 0.59, 1.0, 1.0, 0.169, 0.814, 0.814, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_uy5oa"]
+resource_name = "end2"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Meowington:
+Go to the Clouds Shopping Center
+ and buy a gift. Here use this"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ythti"]
+_data = {
+"RESET": SubResource("Animation_3atb8"),
+"end": SubResource("Animation_l82fs"),
+"end2": SubResource("Animation_uy5oa"),
+"speech": SubResource("Animation_gdhw7"),
+"speech2": SubResource("Animation_hsjld")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_27ktp"]
+
+[node name="Friend" type="Node2D"]
+script = ExtResource("1_3t3rc")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_7dqmx")
+animation = &"talking"
+autoplay = "default"
+frame_progress = 0.758241
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_cxgi2")
+
+[node name="Outside" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Outside"]
+position = Vector2(43, 1.25)
+shape = SubResource("RectangleShape2D_g1d68")
+
+[node name="Exclaim" type="Label" parent="."]
+visible = false
+offset_left = 27.0
+offset_top = -48.0
+offset_right = 32.0
+offset_bottom = -25.0
+text = "!"
+label_settings = SubResource("LabelSettings_c4wp3")
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Text/Words")
+libraries = {
+"": SubResource("AnimationLibrary_ythti")
+}
+
+[node name="Text" type="ColorRect" parent="."]
+visible = false
+offset_left = 41.0
+offset_top = -100.0
+offset_right = 341.0
+offset_bottom = -24.0
+color = Color(0.101961, 0.101961, 0.101961, 1)
+
+[node name="Words" type="Label" parent="Text"]
+offset_left = 10.0
+offset_top = -2.0
+offset_right = 299.0
+offset_bottom = 86.0
+text = "Meowington:
+Today is your mothers Birthday,
+shouldn't you be heading home now?"
+label_settings = SubResource("LabelSettings_27ktp")
+visible_characters = 11
+visible_ratio = 0.145
+
+[connection signal="body_entered" from="Outside" to="." method="_on_outside_body_entered"]
+[connection signal="body_exited" from="Outside" to="." method="_on_outside_body_exited"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

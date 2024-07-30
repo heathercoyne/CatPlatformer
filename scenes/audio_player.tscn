@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bgengyt6tkm6n"]
+
+[ext_resource type="Script" path="res://scripts/audio_player.gd" id="1_4hjj7"]
+
+[node name="AudioPlayer" type="Node"]
+script = ExtResource("1_4hjj7")
+
+[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
+max_distance = 1e+11
+
+[connection signal="finished" from="BackgroundMusic" to="." method="_on_background_music_finished"]
